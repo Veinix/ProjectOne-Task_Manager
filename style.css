@@ -11,15 +11,11 @@
 
 main { 
     /* Center-aligning the main "div" with everything inside it */
-    text-align: center;
     margin: 1rem auto;
 
     /* Setting the size using rem units */
-    height: 25rem; 
+    height: auto; 
     width: 50rem;
-
-    /* Making the background a notebook style */
-    background: url(/assets/notebook_inputFieldBackground.png) no-repeat center/100%;
 }
 
 /* Corkboard background for entire body, but not every item (Hence only targeting body and not using *) */
@@ -27,11 +23,23 @@ body {
     background: url(/assets/corkboard_background.jpg);
 }
 
+.title {
+    background:  no-repeat;
+    margin-top: 1rem;
+    position: relative;
+    left: 15rem;
+}
+
+#storageResetButton {
+    position: relative;
+    right: 5rem;
+}
 /* Goal is to have the form align with each line on the "notebook" */
-form {
+#inputForm {
     font-size: 100%;
-    height: 10rem;
-    width: 40rem;
+    /* Making the background a notebook style */
+    background: url(/assets/notebook_inputFieldBackground.jpg) repeat center/100%;
+    height: 25rem;
 }
 
 /* Making it seem like the user is writing on the paper */
@@ -42,32 +50,57 @@ input {
 }
 
 table {
+    font-size: 1.1rem;
     position: relative;
-    left: 9rem;
-    top: 5.5rem;
+    left: 6.5rem;
+    top: 0.5rem;
+    width: auto;
+    height: auto;
+}
+
+#taskDetailsBox {
+    resize: none;
+    height: 10rem;
+    width: 100%;
+    background-color: transparent;
+    border: none;
 }
 
 tr {
     text-align: left;
-    height: 2.6rem;
+    height: 2.8rem;
 }
 
 td {
-    width: 15rem;
+    width: 11rem;
 }
 
 tfoot > tr {
     text-align: center;
-    height: 5rem;
+    height: 4rem;
 }
 
-td > button {
+tbody > tr:first-child > td:first-child {
+    height: 10rem;
+    width: 10rem;
+    text-align: start;
+    vertical-align: top;
+}
+
+tbody > tr:first-child > td:last-child {
+    height: 10rem;
+    width: 30rem;
+    text-align: start;
+    vertical-align: top;
+}
+
+button {
     background: transparent;
     border: none;
     font-size: 170%;
 }
 
-td > button:hover {
+button:hover {
     background: transparent;
     border: none;
     font-size: 170%;
@@ -88,9 +121,11 @@ td > button:hover {
 .stickyNoteDiv {
     position: relative;
     display: inline-block;
-    /* animation: fadeInAnimation 1.5s; */
+    
     width: 20rem;
     height: 20rem;
+
+    animation: fadeInAnimation 1.5s;
 }
 
 .stickyNoteImg {
@@ -100,10 +135,10 @@ td > button:hover {
 
 .stickyNoteText {
     position: absolute;
-    height: 10rem;
-    width: 12rem;
-    top: 45%;
-    left: 50%;
+    height: 12rem;
+    width: 16rem;
+    top: 47%;
+    left: 43%;
     transform: translate(-50%, -50%);
     overflow: scroll;
 }
@@ -111,7 +146,20 @@ td > button:hover {
 .stickyNoteDate {
     position: absolute;
     height: 1.5rem;
-    width: 10rem;
+    width: 7rem;
     bottom: 15%;
-    right: 32%
+    left: 7%;
 }
+
+i {
+    position: absolute;
+    font-size: 150%;
+    top: 8%;
+    right: 15%;
+    opacity: 0;
+}
+
+.stickyNoteDiv:hover i{
+    opacity: 1;
+}
+
