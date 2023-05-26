@@ -163,3 +163,7 @@ i {
     animation: fadeInAnimation 0.5s forwards;
 }
 
+.fadeOut {
+    animation: fadeOutAnimation 0.5s forwards;
+}
+

@@ -1,11 +1,20 @@
 /* @keyframes duration | easing-function | delay |
 iteration-count | direction | fill-mode | play-state | name */
-
+/* Different CSS file for transitions to keep things somewhat clean */
 @keyframes fadeInAnimation {
     0% {
         opacity: 0;
     }
     100% {
         opacity: 1;
+     }
+}
+
+@keyframes fadeOutAnimation {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
      }
 }
