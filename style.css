@@ -160,6 +160,6 @@ i {
 }
 
 .stickyNoteDiv:hover i{
-    opacity: 1;
+    animation: fadeInAnimation 0.5s forwards;
 }
 

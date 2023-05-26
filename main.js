@@ -8,7 +8,7 @@ storageResetButton.addEventListener("click", () => {
     localStorage.clear();
     location.reload();})
 
-//Load data on page load
+//Load data on page load and display all
 loadData()
 
 //Validation handler - Using an event listener to look for a submit in the form.
@@ -22,6 +22,7 @@ inputForm.addEventListener("submit", () => {
     }
 })
 
+//TODO Add functionality such that each new note fades in, not all at the same time
 function addData() {
     //Getting HTML Elements
     const taskDetailsBox = document.querySelector("#taskDetailsBox");
@@ -33,7 +34,7 @@ function addData() {
     const taskDeadlineDateValue = taskDeadlineDateBox.value
     const taskDeadlineHourValue = taskDeadlineHourBox.value
 
-    //#Load old data
+    //#Load old data from localStorage
     let storedNotes = localStorage.getItem("stickyNotes");
     let stickyNotesArray = [];
     if (storedNotes) stickyNotesArray = JSON.parse(storedNotes);
@@ -46,10 +47,21 @@ function addData() {
     localStorage.setItem("stickyNotes", stickyNotesJSON);
 
     //# Load updated data
-    loadData()
+    //In order for the animation to occur per div, we will manipulate the DOM every time there is a new task. Below is how that is done.
+    const stickyNoteArea = document.querySelector("#stickyNoteArea");
+    //Creating the stickyNoteDiv with the aforementioned class.
+    const newStickyNoteDiv = document.createElement("div"); 
+    newStickyNoteDiv.setAttribute("class", "stickyNoteDiv");
+    newStickyNoteDiv.innerHTML = 
+    `
+    <i class="bi bi-x-square"></i>
+    <img src="/assets/stickyNote.png" class="stickyNoteImg" alt="Sticky Note">
+    <p class="stickyNoteText"> ${singleNote[0]}</p>
+    <span class="stickyNoteDate">${singleNote[1]} ${singleNote[2]}</span>
+    `;
+    stickyNoteArea.appendChild(newStickyNoteDiv);
 }
 
-//On refresh/page load - display all the notes
 function loadData() {
     const stickyNoteArea = document.querySelector("#stickyNoteArea");
     //Assigning the stored data to storedNotes variable
@@ -64,9 +76,10 @@ function loadData() {
     stickyNoteContent += 
     `
     <div class="stickyNoteDiv">
+    <i class="bi bi-x-square"></i>
     <img src="/assets/stickyNote.png" class="stickyNoteImg" alt="Sticky Note">
-    <p class="stickyNoteText"> ${note[0]} </p>
-    <span class="stickyNoteDate"> ${note[1]} ${note[2]}</span>
+    <p class="stickyNoteText"> ${note[0]}</p>
+    <span class="stickyNoteDate">${note[1]} ${note[2]}</span>
     </div>
     `;
     }
@@ -74,3 +87,6 @@ function loadData() {
     //Updating the inner HTML of the sticky note area section.
     stickyNoteArea.innerHTML = stickyNoteContent;
 }
+
+
+//# Creating the delete functionality
