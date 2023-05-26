@@ -53,7 +53,7 @@ function addData() {
     <p class="stickyNoteText"> ${singleNote[0]}</p>
     <span class="stickyNoteDate">${singleNote[1]} ${singleNote[2]}</span>
     `;
-    //Appending the newly created sticky note to the end of the the sticky note area
+    //Appending the newly created sticky note to the end of the the sticky note area. Note that appendChild is used instead of append, since append allows appending string objects
     stickyNoteArea.appendChild(newStickyNoteDiv);
 }
 
@@ -97,13 +97,15 @@ function deleteNote(evt) {
     stickyNote = evt.target.parentElement; 
     //Setting a fade out animation
     stickyNote.style.animation = "fadeOutAnimation 0.5s forwards";
-    //Removing the note after 0.7 seconds
-    setTimeout(() => stickyNote.remove(), 700)
+    //Removing the note after 0.5 seconds
+    setTimeout(() => stickyNote.remove(), 500)
 
     //# Removing from localStorage
     //By creating an array by getting the children of the parent node (the stickNoteArea section), we can virtually duplicate the array in storage in order to get the right array index for the sticky note we want to remove
     let stickyNoteArea = stickyNote.parentElement;
-    const index = Array.from(stickyNoteArea.children).indexOf(stickyNote);
+    let array = Array.from(stickyNoteArea.children)
+    const index = array.indexOf(stickyNote);
+    moveDivs(array, index)
 
     //Loading the array from storage
     let storedNotes = localStorage.getItem("stickyNotes"); 
@@ -124,3 +126,25 @@ stickyNoteContainer.addEventListener("click", function(evt) {
     if (evt.target.matches("i")) deleteNote(evt);
   });
 
+
+function moveDivs(array, index) {
+    array.forEach((element) => {
+        if (array.indexOf(element) > index) {
+            if (array.indexOf(element) % 4 === 0) {
+            element.style.animation = 'diagonalSlide 0.5s ease';
+            } else {
+            element.style.animation = 'slideIn 0.5s ease forwards';
+            }
+        };
+    });
+
+    let stickyNotes = document.getElementsByClassName("stickyNoteDiv");
+    setTimeout(() => {
+        for (let i = 0; i < stickyNotes.length; i++) {
+            stickyNotes[i].style.animation = 'none';
+            stickyNotes[i].style.background = 'none';
+        }
+    }, 500);
+    return;
+  }
+  

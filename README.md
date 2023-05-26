@@ -20,4 +20,4 @@ Third: A span element for the date.
 The sticky note div (read: the whole div containing the above elements) is positioned relative whereas it's children are positioned absolutely to fine tune where we want each element on the "sticky note".
 
 ## JS
-TBC (To be coded)
+There are couple components in order to make this work. We have an input form which contains

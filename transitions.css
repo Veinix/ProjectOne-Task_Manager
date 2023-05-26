@@ -18,3 +18,18 @@ iteration-count | direction | fill-mode | play-state | name */
         opacity: 0;
      }
 }
+
+@keyframes slideIn {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+
+@keyframes diagonalSlide {
+    0% { 
+        transform: translate(0, 0);
+    }
+    100% {
+        /* (x positive = right, y positive = down) */
+        transform: translate(60rem, -20rem);
+    }
+}

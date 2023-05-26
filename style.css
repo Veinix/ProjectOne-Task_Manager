@@ -126,6 +126,7 @@ button:hover {
     height: 20rem;
 
     animation: fadeInAnimation 1.5s;
+    transition: 2s;
 }
 
 .stickyNoteImg {
