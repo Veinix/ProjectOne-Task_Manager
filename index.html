@@ -14,7 +14,7 @@
 <body>
     <main>
         <h1> My Task Board</h1>
-        <form action="#">
+        <form action="#" id="inputForm">
             <table id="formTable">
                 <tbody>
                 <tr> 
@@ -32,19 +32,16 @@
                 </tbody>
                 <tfoot>
                 <tr> 
-                    <td><button type="submit" id="saveButton"> Save </button></td> <!-- Saves the information in the form (The task details)-->
+                    <td><button type="submit" id="saveButton"> Add </button></td> <!-- Saves the information in the form (The task details)-->
                     <td><button type="reset" id="resetButton"> Reset </button></td> <!-- Resets all fields in the form to their defaults values-->
+                    <td><button type="button" id="storageResetButton"> Clear </button></td>
                 </tr>
                 </tfoot>
             </table>
         </form>
     </main>
     <section id="stickyNoteArea">
-        <div class="stickyNoteDiv">
-            <img src="/assets/stickyNote.png" class="stickyNoteImg" alt="Sticky Note">
-            <p class="stickyNoteText"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque bibendum enim nec diam varius, tempor iaculis quam condimentum. Pellentesque euismod congue urna mollis venenatis. Aenean congue leo dignissim ante venenatis eleifend. Aliquam iaculis vitae nulla ac sagittis. </p>
-            <span class="stickyNoteDate">26/05/2023 15:00</span>
-        </div>
+        
     </section>
 </body>
 </html>

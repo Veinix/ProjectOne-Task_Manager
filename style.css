@@ -88,7 +88,7 @@ td > button:hover {
 .stickyNoteDiv {
     position: relative;
     display: inline-block;
-    animation: fadeInAnimation 1.5s;
+    /* animation: fadeInAnimation 1.5s; */
     width: 20rem;
     height: 20rem;
 }
