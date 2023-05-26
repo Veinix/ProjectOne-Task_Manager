@@ -1,0 +1,76 @@
+/* em values are relative to the font-size of the nearest parent element, while rem values are relative to the root font-size, or the font-size of the html element. And when the root font-size is not explicitly set, rem values are relative to the browser’s default font-size of 16px */
+
+/* Resetting sizing, padding, margin etc */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* Font that looks similar to handwriting (Keeping in the notebook theme) */
+    font-family: "MV Boli";
+}
+
+
+main { 
+    /* Center-aligning the main "div" with everything inside it */
+    text-align: center;
+    margin: 1rem auto;
+
+    /* Setting the size using rem units */
+    height: 25rem; 
+    width: 50rem;
+
+    /* Making the background a notebook style */
+    background: url(/assets/notebook_inputFieldBackground.png) no-repeat center/100%;
+}
+
+/* Corkboard background for entire body, but not every item (Hence only targeting body and not using *) */
+body {
+    background: url(/assets/corkboard_background.jpg);
+}
+
+/* Goal is to have the form align with each line on the "notebook" */
+form {
+    font-size: 100%;
+    height: 10rem;
+    width: 40rem;
+}
+
+/* Making it seem like the user is writing on the paper */
+input {
+    background: transparent;
+    border: none;
+    width: 100%;
+}
+
+table {
+    position: relative;
+    left: 9rem;
+    top: 5.5rem;
+}
+
+tr {
+    text-align: left;
+    height: 2.6rem;
+}
+
+td {
+    width: 15rem;
+}
+
+tfoot > tr {
+    text-align: center;
+    height: 5rem;
+}
+
+td > button {
+    background: transparent;
+    border: none;
+    font-size: 170%;
+}
+
+td > button:hover {
+    background: transparent;
+    border: none;
+    font-size: 170%;
+    opacity: 0.5;
+}
