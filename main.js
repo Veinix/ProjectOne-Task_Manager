@@ -39,11 +39,16 @@ function addData() {
     const taskDeadlineDateBox = document.querySelector("#taskDeadlineDateBox");
     const taskDeadlineHourBox = document.querySelector("#taskDeadlineHourBox");
 
+   
     //Getting values
     let taskDetailsValue = taskDetailsBox.value
     let taskDeadlineDateValue = taskDeadlineDateBox.value
     let taskDeadlineHourValue = taskDeadlineHourBox.value
-    
+
+    //Changing the date format
+    let dateArray = taskDeadlineDateValue.split("-");
+    taskDeadlineDateValue = `${dateArray[2]}-${dateArray[1]}-${dateArray[0]}`
+
     //#Load old data from localStorage
     let storedNotes = localStorage.getItem("stickyNotes");
     let stickyNotesArray = [];
@@ -73,7 +78,8 @@ function addData() {
     stickyNoteArea.appendChild(newStickyNoteDiv);
 
     //Clearing the fields after submit
-    document.querySelector("#inputForm").reset();
+    //! Unstring at end
+    // document.querySelector("#inputForm").reset();
 }
 
 function loadData() {
