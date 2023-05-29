@@ -25,19 +25,19 @@
                 <tr></tr>
                 <tr>
                     <td><label for="taskDeadlineDateBox"> Task Deadline Date: </label></td>
-                    <td><input type="date" id="taskDeadlineDateBox" name="taskDeadlineDate" placeholder="What date do I need to do it by?" required></td> <!-- Input field for what date the task is due by -->
+                    <td><input type="date" id="taskDeadlineDateBox" name="taskDeadlineDate" required></td> <!-- Input field for what date the task is due by -->
                     <td></td>
                 </tr>
                 <tr>
                     <td><label for="taskDeadlineHourBox"> Task Deadline Hour: </label></td>
-                    <td><input type="time" id="taskDeadlineHourBox" name="taskDeadlineHour" placeholder="When exactly is it due?" required></td> <!-- Input field for when exactly (hour) the task is due by -->
+                    <td><input type="time" id="taskDeadlineHourBox" name="taskDeadlineHour" required></td> <!-- Input field for when exactly (hour) the task is due by -->
                     <td></td>
                 </tr>
                 </tbody>
                 <tfoot>
                     <tr> 
                         <td><button type="submit" id="saveButton"> Add Task </button></td> <!-- Saves the information in the form (The task details)-->
-                        <td><button type="reset" id="resetButton"> Reset Fields </button></td> <!-- Resets all fields in the form to their defaults values-->
+                        <td><button type="button" id="resetButton"> Reset </button></td> <!-- Resets all fields in the form to their defaults values-->
                     </tr>
                 </tfoot>
             </table>

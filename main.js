@@ -1,13 +1,23 @@
+"use strict";
+
 // Using querySelector method to get the elements for the input fields and their values, the section we will put all the "sticky notes" in and the reset/save buttons.
 const saveButton = document.querySelector("#saveButton");
 const resetButton = document.querySelector("#resetButton");
 const storageResetButton = document.querySelector("#storageResetButton");
 
 //Load data on page load and display all
-loadData()
+loadData();
 
-//Validation handler - Using an event listener to look for a submit in the form.
+//#Validation handlers
+//Validating date and time seperately since their minimum changes dynamically
+//Checks for inputs to the inputform
 const inputForm = document.querySelector("#inputForm");
+inputForm.addEventListener("input", () => {
+    validateDateInput();
+    validateHourInput();
+});
+
+// Using an event listener to look for a submit in the form.
 inputForm.addEventListener("submit", () => {
     event.preventDefault(); // Prevents page reload
     if (inputForm.checkValidity()) {
@@ -17,6 +27,12 @@ inputForm.addEventListener("submit", () => {
     }
 })
 
+//Reset button to remove all the notes from storage and refresh the page
+resetButton.addEventListener("click", () => { 
+    localStorage.clear();
+    location.reload();
+})
+
 function addData() {
     //Getting HTML Elements
     const taskDetailsBox = document.querySelector("#taskDetailsBox");
@@ -24,10 +40,10 @@ function addData() {
     const taskDeadlineHourBox = document.querySelector("#taskDeadlineHourBox");
 
     //Getting values
-    const taskDetailsValue = taskDetailsBox.value
-    const taskDeadlineDateValue = taskDeadlineDateBox.value
-    const taskDeadlineHourValue = taskDeadlineHourBox.value
-
+    let taskDetailsValue = taskDetailsBox.value
+    let taskDeadlineDateValue = taskDeadlineDateBox.value
+    let taskDeadlineHourValue = taskDeadlineHourBox.value
+    
     //#Load old data from localStorage
     let storedNotes = localStorage.getItem("stickyNotes");
     let stickyNotesArray = [];
@@ -55,6 +71,9 @@ function addData() {
     `;
     //Appending the newly created sticky note to the end of the the sticky note area
     stickyNoteArea.appendChild(newStickyNoteDiv);
+
+    //Clearing the fields after submit
+    document.querySelector("#inputForm").reset();
 }
 
 function loadData() {
@@ -86,15 +105,14 @@ function loadData() {
 
 
 //# Creating the delete functionality
-
 //removeButtons represents all the buttons with the element i
 const removeButtons = document.getElementsByTagName("i");
-function deleteNote(evt) {
+function deleteNote(event) {
 
     //# Removing from display
     //Variable we will use to store the DOM reference of the parent of the clicked i element
     let stickyNote = ''; 
-    stickyNote = evt.target.parentElement; 
+    stickyNote = event.target.parentElement; 
     //Setting a fade out animation
     stickyNote.style.animation = "fadeOutAnimation 0.5s forwards";
     //Removing the note after 0.7 seconds
@@ -119,8 +137,40 @@ function deleteNote(evt) {
 
 // Add event listener to the container using event delegation
 const stickyNoteContainer = document.querySelector("#stickyNoteArea");
-stickyNoteContainer.addEventListener("click", function(evt) {
+stickyNoteContainer.addEventListener("click", function(event) {
     // Check if the clicked element is a "remove" button, then removes the note
-    if (evt.target.matches("i")) deleteNote(evt);
+    if (event.target.matches("i")) deleteNote(event);
   });
 
+// Function to validate the date input
+function validateDateInput() {
+    const taskDeadlineDateBox = document.querySelector("#taskDeadlineDateBox");
+    const selectedDate = new Date(taskDeadlineDateBox.value).toLocaleDateString();
+    const minDate = new Date().toLocaleDateString();
+    if (selectedDate < minDate) {
+        taskDeadlineDateBox.setCustomValidity("Selected date is earlier than the minimum date.");
+    }
+}
+
+//Function to validate the hour input
+function validateHourInput() {
+    const taskDeadlineHourBox = document.querySelector("#taskDeadlineHourBox");
+    //Inputted time value. Converting into a number for more accurate comparison
+    let selectedHour = parseInt(taskDeadlineHourBox.value, 10)*100;
+    let selectedMinutes = parseInt(taskDeadlineHourBox.value.substring(3), 10);
+    let selectedTime = selectedHour + selectedMinutes;
+
+    //Creating a new date object of "now" and getting the hour and minutes
+    let date = new Date();
+    let hour = date.getHours()
+    let minutes = date.getMinutes()
+    //Converting the "now" time into decimal
+    let minHour = (hour*100) + minutes;
+
+    //If the time the user selects is less than the current time, then it shows an error message. Otherwise sets validity to true
+    if (selectedTime < minHour) {
+        taskDeadlineHourBox.setCustomValidity("Selected time is earlier than the minimum time.");
+    } else {
+        taskDeadlineHourBox.setCustomValidity('');
+    }
+}

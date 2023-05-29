@@ -124,6 +124,22 @@ The code includes an event listener for the form submission `(submit)` event. It
 
 The `deleteNote(evt)` function handles the deletion of sticky notes. It removes the note from the display by applying a fade-out animation and removes it from the local storage by finding its index in the `stickyNotesArray` and using `splice()` to remove it. The function effectively uses event delegation by attaching the event listener to the `stickyNoteContainer` and checking if the clicked element matches the remove button `i` represented by a Bootstrap Icon of an X enclosed by a square .
 
+## Changelog
+
+A changelog is a vital component of any project, providing the following benefits:
+
+### Transparency and Communication
+
+A changelog allows open communication by showcasing project progress, updates, bug fixes, and new features. It demonstrates commitment to project improvement.
+
+### Bug Tracking and Issue Resolution
+
+In the absence of specialized tools, changelogs can serve as a bug tracking tool, allowing efficient issue resolution. Users can reference the changelog to check if specific issues have been addressed, reducing redundancy in bug reports.
+
+### Historical Record and Version Control
+
+The changelog acts as a historical record, documenting each version and its updates. It facilitates version control, helping developers roll back if needed and identifying patterns for improvement While tools like Git and GitHub are used for version control, a changelog serves as a human-readable somewhat non-technical summary of the changes made to a project over time.
+
 ## Thank you for reading!
 Feel free to explore the code and make modifications according to your preferences or requirements. Enjoy using the to-do list web-app! 
 
