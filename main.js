@@ -78,8 +78,7 @@ function addData() {
     stickyNoteArea.appendChild(newStickyNoteDiv);
 
     //Clearing the fields after submit
-    //! Unstring at end
-    // document.querySelector("#inputForm").reset();
+    document.querySelector("#inputForm").reset();
 }
 
 function loadData() {
