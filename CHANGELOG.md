@@ -6,7 +6,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## Unreleased
 
+## [1.0.10](https://github.com/Veinix/TaskManager_ProjectOne/commit/46346efa85fac385721ee93db184d5977414d9bc) - 2023-05-29
+
+### Updated
+- Time now shows in DD/MM/YYYY format
+
 ## [1.0.9](https://github.com/Veinix/TaskManager_ProjectOne/commit/eae5fa270304f3529874330e49331c9128b01ec3) - 2023-05-29
+
 ### Added
 - `CHANGELOG.md`
     - Retroactively added all updates into `CHANGELOG.md`
