@@ -5,6 +5,28 @@ All notable changes to this project will be documented in this file
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## Unreleased
+- Notes will to move into place after deleting a note ahead of it
+- Auto high-light of input box on page load or note creation
+- Clean up JS syntax
+- Update `README.md` to reflect changes and behavior 
+
+## [1.1.0](https://github.com/Veinix/TaskManager_ProjectOne/commit/f71a213f50059ad4007063c49cc75a1ba4c2d8f6) - 2023-06-04
+
+### Updated
+- Updated the date validation
+- Updated time validation
+- Updated how the sticky note is created and loaded
+- Cleaned up JS comments and structure
+
+### Added
+- Created styles folder and moved stylesheets into it
+
+### Fixed
+- Fixed the CSS such that the last `stickyNoteDiv` fades in, and if there is only one - then it doesn't
+
+### Changed
+- Edited JS Validation handler
+- Changed favicon icon from Assaf to Book emoji
 
 ## [1.0.10](https://github.com/Veinix/TaskManager_ProjectOne/commit/46346efa85fac385721ee93db184d5977414d9bc) - 2023-05-29
 
