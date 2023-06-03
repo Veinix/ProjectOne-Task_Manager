@@ -107,6 +107,10 @@ button:hover {
     opacity: 0.5;
 }
 
+/*
+ #Sticky Notes
+*/
+
 #stickyNoteArea {
     display: flex;
     flex-flow: row wrap;
@@ -118,14 +122,29 @@ button:hover {
 
 }
 
+.fadeInAnimation {
+    animation: fadeInAnimation 1.5s;
+}
+
+/* 
+.stickyNoteDiv:nth-last-child(1) {
+    animation: fadeInAnimation 1.5s;
+}
+
+.stickyNoteDiv:first-child {
+    animation: fadeInAnimation 1.5s;
+}
+
+.stickyNoteDiv:only-child {
+    animation: none;
+} 
+*/
+
 .stickyNoteDiv {
     position: relative;
     display: inline-block;
-    
     width: 20rem;
     height: 20rem;
-
-    animation: fadeInAnimation 1.5s;
 }
 
 .stickyNoteImg {
@@ -140,8 +159,20 @@ button:hover {
     top: 47%;
     left: 43%;
     transform: translate(-50%, -50%);
-    overflow: scroll;
+    overflow-y: auto;
 }
+
+/* Hiding scroll bar for Chrome */
+.stickyNoteText::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hiding scroll bar for IE, Edge and Firefox */
+.stickyNoteText {
+-ms-overflow-style: none;  /* IE / Edge */
+scrollbar-width: none;  /* Firefox */
+}
+
 
 .stickyNoteDate {
     position: absolute;
