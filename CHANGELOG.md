@@ -4,11 +4,10 @@ All notable changes to this project will be documented in this file
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
-## Unreleased
-- Notes will to move into place after deleting a note ahead of it
-- Auto high-light of input box on page load or note creation
-- Clean up JS syntax
-- Update `README.md` to reflect changes and behavior 
+## [1.1.1](https://github.com/Veinix/TaskManager_ProjectOne/commit/52175751146d079da5fe83a85d20865aa8f5cb70) - 2023-06-07
+
+### Updated
+- Updated `README.md`
 
 ## [1.1.0](https://github.com/Veinix/TaskManager_ProjectOne/commit/f71a213f50059ad4007063c49cc75a1ba4c2d8f6) - 2023-06-04
 
